@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
         required:[true,"Please provide a password"],
 
     },
-    isVerfied:{
+    isVerified:{ //typo
         type:Boolean,
         default:false
     },
@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema({
     forgotPasswordTokenExpiry:Date,
     verifyToken : String,
     verifyTokenExpiry:Date
-})
+},{timestamps:true})
 
 const User = mongoose.models.users || mongoose.model("users",userSchema)
 export default User
