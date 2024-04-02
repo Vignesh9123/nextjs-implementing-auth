@@ -19,6 +19,14 @@ export default function LoginPage() {
     const [buttonDisabled, setButtonDisabled] = React.useState(false);
     const [loading, setLoading] = React.useState(false);
 
+    const awaitDelay = ()=>{
+        return new Promise((resolve)=>{
+            setTimeout(() => {
+                resolve()
+                return
+            }, 1000);
+        })
+    }
 
     const onLogin = async () => {
         try {
@@ -26,6 +34,7 @@ export default function LoginPage() {
             const response = await axios.post("/api/user/login", user);
             console.log("Login success", response.data);
             toast.success("Login success");
+            await awaitDelay()
             router.push("/user/profile");
         } catch (error) {
             console.log("Login failed", error.response);
