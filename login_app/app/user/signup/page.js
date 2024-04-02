@@ -35,7 +35,7 @@ export default function SignupPage() {
             await awaitDelay()
             router.push("/user/login");
         } catch (error) {
-            console.log("Signup failed", error.message);
+            console.log("Signup failed", error);
             
             toast.error(error.response.data.message);
         }finally {
