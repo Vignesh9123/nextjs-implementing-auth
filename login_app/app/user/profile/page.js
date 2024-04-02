@@ -9,10 +9,20 @@ import {useRouter} from "next/navigation";
 export default function ProfilePage() {
     const router = useRouter()
     const [data, setData] = useState("nothing")
+    const awaitDelay = ()=>{
+        return new Promise((resolve)=>{
+            setTimeout(() => {
+                resolve()
+                return
+            }, 1300);
+        })
+    }
+
     const logout = async () => {
         try {
             await axios.get('/api/user/logout')
             toast.success('Logout successful')
+            await awaitDelay()
             router.push('/user/login')
         } catch (error) {
             console.log(error.message);

@@ -24,7 +24,7 @@ export default function LoginPage() {
             setTimeout(() => {
                 resolve()
                 return
-            }, 1000);
+            }, 1300);
         })
     }
 
