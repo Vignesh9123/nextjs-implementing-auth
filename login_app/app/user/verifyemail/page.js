@@ -26,7 +26,7 @@ export default function VerifyEmailPage() {
     }
 
     useEffect(() => {
-        const urlToken = window.location.search.split("=")[1].replaceAll("%24","$");
+        const urlToken = window.location.search.split("=")[1].replaceAll("%24","$").replace("%2F","/");
         console.log(urlToken);
         setToken((urlToken) || "");
     }, []);
