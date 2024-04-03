@@ -33,8 +33,7 @@ export default function ProfilePage() {
 
     const getUserDetails = async () => {
         try {
-            const token = localStorage.getItem("token")
-            const res = await axios.post('/api/user/me',{token})
+            const res = await axios.post('/api/user/me')
             console.log(res.data);
             setData(res.data.user._id)
         } catch (error) {

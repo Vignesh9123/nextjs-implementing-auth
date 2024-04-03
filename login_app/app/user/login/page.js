@@ -33,7 +33,6 @@ export default function LoginPage() {
             setLoading(true);
             const response = await axios.post("/api/user/login", user);
             console.log("Login success", response.data);
-            localStorage.setItem("token",response.data.token)
             toast.success("Login success");
             await awaitDelay()
             router.push("/user/profile");

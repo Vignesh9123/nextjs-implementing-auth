@@ -3,6 +3,8 @@ import bcrypt from "bcrypt"
 import User from "@/models/userSchema";
 import { NextResponse,NextRequest } from "next/server";
 import jwt from "jsonwebtoken"
+import { cookies } from 'next/headers'
+
 connect()
 
 export async function POST(request){
@@ -27,10 +29,17 @@ export async function POST(request){
         }
 
         const token = await jwt.sign(tokenPayload,process.env.TOKEN_SECRET,{expiresIn:'1d'})
-        const response = await NextResponse.json({message:"Logged in success",success:true,token})
+        const response =  NextResponse.json({message:"Logged in success",success:true})
+        const res = new NextResponse()
+        // response.cookies.set("token",token,{
+        //     httpOnly:true
+        // })
+        cookies().set('token', token)
+        console.log("backend token",cookies().get('token'))
         return response
+        
 
     } catch (error) {
-        
+        return NextResponse.json({error})
     }
 }
