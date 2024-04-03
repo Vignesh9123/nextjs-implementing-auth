@@ -8,7 +8,7 @@ export default function Home() {
       const resp = await res.json()
       console.log(resp);
     })()
-  })
+  },[])
   return (<>
    <div>Home</div>
    {loggedIn ? <div>Sign out</div>:<div>Sign in</div>}
