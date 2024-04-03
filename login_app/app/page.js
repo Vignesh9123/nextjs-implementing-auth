@@ -7,7 +7,7 @@ export default function Home() {
       const res = await fetch("/api/user/getIsLoggedIn")
       const resp = await res.json()
       console.log(resp);
-    })
+    })()
   })
   return (<>
    <div>Home</div>
