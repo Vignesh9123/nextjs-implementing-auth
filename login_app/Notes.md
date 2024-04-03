@@ -4,4 +4,4 @@
 #### Always provide a string in the paassword while testing API in postman eg:
 <p>123456❌<br/>"123456"✅</p>
 
-#### In logout the token is not getting deleted at second request to the api route so need a better replacement
+#### In logout the token is not getting deleted at second request to the api route so need a better replacement <br>Update: Used {cookies} from next/header to solve this

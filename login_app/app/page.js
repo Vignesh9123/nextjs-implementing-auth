@@ -16,7 +16,7 @@ export default function Home() {
   return (<>
    <div>Home</div>
 
-   {loaded &&loggedIn ? <Link href="/user/profile">Sign out</Link>:<Link href="/user/login">Sign in</Link>}
+   {loaded &&(loggedIn ? <Link href="/user/profile">Sign out</Link>:<Link href="/user/login">Sign in</Link>)}
    </>
   );
 }
