@@ -6,7 +6,7 @@ export default function Home() {
     (async()=>{
       const res = await fetch("/api/user/getIsLoggedIn")
       const resp = await res.json()
-      console.log(resp);
+      setLoggedIn(resp.login)
     })()
   },[])
   return (<>
