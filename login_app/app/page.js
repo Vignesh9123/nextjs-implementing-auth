@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link";
 import { useEffect, useState } from "react";
 export default function Home() {
   const [loggedIn, setLoggedIn] = useState(false)
@@ -11,7 +12,7 @@ export default function Home() {
   },[])
   return (<>
    <div>Home</div>
-   {loggedIn ? <div>Sign out</div>:<div>Sign in</div>}
+   {loggedIn ? <Link href="/user/profile">Sign out</Link>:<Link href="/user/login">Sign in</Link>}
    </>
   );
 }
