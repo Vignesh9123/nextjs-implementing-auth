@@ -1,10 +1,10 @@
 "use client"
+import { getLoggedIn } from "@/helpers/userLoggedIn";
 import { useEffect, useState } from "react";
-import { cookies } from "next/headers";
 export default function Home() {
   const [loggedIn, setLoggedIn] = useState(false)
   useEffect(()=>{
-    setLoggedIn(cookies().has("token"))
+    setLoggedIn(getLoggedIn)
   })
   return (<>
    <div>Home</div>
