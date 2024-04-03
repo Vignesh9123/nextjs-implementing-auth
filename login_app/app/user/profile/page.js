@@ -21,6 +21,7 @@ export default function ProfilePage() {
     const logout = async () => {
         try {
             await axios.get('/api/user/logout')
+            localStorage.removeItem("token")
             toast.success('Logout successful')
             router.push('/user/login')
 
@@ -32,7 +33,8 @@ export default function ProfilePage() {
 
     const getUserDetails = async () => {
         try {
-            const res = await axios.post('/api/user/me')
+            const token = localStorage.getItem("token")
+            const res = await axios.post('/api/user/me',{token})
             console.log(res.data);
             setData(res.data.user._id)
         } catch (error) {
