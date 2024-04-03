@@ -19,7 +19,7 @@ export default function VerifyEmailPage() {
             toast.success("Email verified successfully, you can now login to your account")
         } catch (error) {
             setError(true);
-            console.log(error.reponse.data);
+            console.log(error);
             
         }
 
